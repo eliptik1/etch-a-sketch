@@ -1,13 +1,14 @@
 const container = document.querySelector(".container")
+createPad();
 
-
-
+function createPad(){
 for (let j = 1; j <= 16; j++) {
     for (let i = 1; i <= 16; i++) {
         const pixel2 = document.createElement("div")
         pixel2.classList.add("pixel")
         container.append(pixel2)
     }
+}
 }
 
 const selection = document.getElementsByClassName("pixel")
