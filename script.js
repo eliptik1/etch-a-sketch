@@ -1,11 +1,17 @@
 const container = document.querySelector(".container")
+
+let row = prompt();
+let column = row;
+
 createPad();
 
 function createPad(){
-for (let j = 1; j <= 16; j++) {
-    for (let i = 1; i <= 16; i++) {
+for (let j = 1; j <= column; j++) {
+    for (let i = 1; i <= row; i++) {
         const pixel2 = document.createElement("div")
         pixel2.classList.add("pixel")
+        pixel2.style.width = `${400/row}px`
+        pixel2.style.height = `${400/row}px`
         container.append(pixel2)
     }
 }

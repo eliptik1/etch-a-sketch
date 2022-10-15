@@ -6,8 +6,10 @@ body{
     justify-content: center;
 }
 .container {
+    
     outline: 2px solid black;
-    width: 480px;
+    width: 400px;
+    height: 400px;
 
     display: flex;
     flex-wrap: wrap;
@@ -16,8 +18,8 @@ body{
 
 .pixel {
     outline: 2px solid black;
-    width: 30px;
-    height: 30px;
+    width: 00px;
+    height: 00px;
     background-color: white;
 
 }
