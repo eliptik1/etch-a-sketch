@@ -1,0 +1,16 @@
+
+.container {
+    outline: 2px solid black;
+    width: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.pixel {
+    border: 2px solid black;
+    height: 36px;
+    min-width: 36px;
+    max-width: 36px;
+}
+
