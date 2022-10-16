@@ -1,11 +1,19 @@
 const container = document.querySelector(".container")
 const btn = document.querySelector("#btn")
 const btn2 = document.querySelector("#btn2")
+const color2 = document.querySelector("#color2")
 btn.addEventListener("click", removePad)
+color2.addEventListener("click", changeColor)
 
+
+let color = "red"
 let row = 16;
 let column = row;
 createPad();
+
+function changeColor(){
+    color = "orange"
+}
 
 function removePad() {
     const cont = document.querySelector(".container")
@@ -40,7 +48,7 @@ function createPad() {
         selection[i].addEventListener("mousemove", hover)
         function hover() {
             if (isClicked) {
-                selection[i].classList.add("color")
+                selection[i].setAttribute("style",`background-color: ${color}; width: ${800 / row}px; height: ${800 / row}px`)
             }
         }
     }
