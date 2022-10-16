@@ -8,8 +8,8 @@ body{
 
 .container {
     outline: 2px solid black;
-    width: 400px;
-    height: 400px;
+    width: 800px;
+    height: 800px;
     display: flex;
     flex-wrap: wrap;
 }
