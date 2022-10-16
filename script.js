@@ -5,11 +5,15 @@ const color2 = document.querySelector("#color2")
 btn.addEventListener("click", removePad)
 color2.addEventListener("click", changeColor)
 
-
 let color = "red"
+let width = 600;
+let height = width;
 let row = 16;
 let column = row;
 createPad();
+
+
+
 
 function changeColor(){
     color = "orange"
@@ -24,7 +28,8 @@ function removePad() {
 }
 
 function createPad() {
-
+    container.style.width = `${width}px`
+    container.style.height = `${height}px`
     while (row >= 100) {
         alert("You should set the grid size smaller than 100")
         row = prompt("Set the grid size", "16");
@@ -35,8 +40,8 @@ function createPad() {
         for (let i = 1; i <= row; i++) {
             const pixel2 = document.createElement("div")
             pixel2.classList.add("pixel")
-            pixel2.style.width = `${800 / row}px`
-            pixel2.style.height = `${800 / row}px`
+            pixel2.style.width = `${width / row}px`
+            pixel2.style.height = `${height / column}px`
             container.append(pixel2)
         }
     }
@@ -48,7 +53,7 @@ function createPad() {
         selection[i].addEventListener("mousemove", hover)
         function hover() {
             if (isClicked) {
-                selection[i].setAttribute("style",`background-color: ${color}; width: ${800 / row}px; height: ${800 / row}px`)
+                selection[i].setAttribute("style",`background-color: ${color}; width: ${width / row}px; height: ${height / column}px`)
             }
         }
     }

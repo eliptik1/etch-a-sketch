@@ -8,10 +8,12 @@ body{
 
 .container {
     outline: 2px solid black;
-    width: 800px;
-    height: 800px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.dimension {
+ color: black;
 }
 
 .pixel {
@@ -25,4 +27,11 @@ margin-top: 20px;
 
 .color {
     background-color: rgb(0, 106, 255);
+}
+
+#color2 {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: orange;
 }
