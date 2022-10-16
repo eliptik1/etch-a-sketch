@@ -3,25 +3,23 @@ const btn = document.querySelector("#btn")
 const btn2 = document.querySelector("#btn2")
 btn.addEventListener("click", removePad)
 
-
-
 let row = 16;
 let column = row;
 createPad();
-console.log(row)
+
 function removePad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
-    row = prompt("Set the grid size");
+    row = prompt("Set the grid size", "16");
     column = row;
     createPad();
 }
 
 function createPad() {
-    
-    while(row >= 100){
+
+    while (row >= 100) {
         alert("You should set the grid size smaller than 100")
-        row = prompt("Set the grid size");
+        row = prompt("Set the grid size", "16");
         column = row
     }
 
@@ -36,11 +34,28 @@ function createPad() {
     }
 
     const selection = document.getElementsByClassName("pixel")
-    for (let i = 0; i < selection.length; i++) {
-        selection[i].addEventListener("mouseover", hover)
 
+    for (let i = 0; i < selection.length; i++) {
+        const container = document.querySelector(".container")
+        selection[i].addEventListener("mousemove", hover)
         function hover() {
-            selection[i].classList.add("color")
+            if (isClicked) {
+                selection[i].classList.add("color")
+            }
         }
     }
 }
+
+let isClicked = false;
+
+container.addEventListener("mousedown", () => {
+    isClicked = true;
+})
+
+container.addEventListener("mouseup", () => {
+    isClicked = false;
+})
+
+container.addEventListener("mouseleave", () => {
+    isClicked = false;
+})
