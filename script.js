@@ -5,18 +5,17 @@ const color2 = document.querySelector("#color2")
 btn.addEventListener("click", removePad)
 color2.addEventListener("click", changeColor)
 
-let color = "red"
+
+
+let colorPixel = "#297bff"
 let width = 600;
 let height = width;
 let row = 16;
 let column = row;
 createPad();
 
-
-
-
 function changeColor(){
-    color = "orange"
+    colorPixel = "orange"
 }
 
 function removePad() {
@@ -53,7 +52,7 @@ function createPad() {
         selection[i].addEventListener("mousemove", hover)
         function hover() {
             if (isClicked) {
-                selection[i].setAttribute("style",`background-color: ${color}; width: ${width / row}px; height: ${height / column}px`)
+                selection[i].setAttribute("style",`background-color: ${colorPixel}; width: ${width / row}px; height: ${height / column}px`)
             }
         }
     }
@@ -72,3 +71,11 @@ container.addEventListener("mouseup", () => {
 container.addEventListener("mouseleave", () => {
     isClicked = false;
 })
+
+const colorPicker = document.querySelector("#colorPicker")
+
+colorPicker.addEventListener("change" , updateColor)
+
+function updateColor(){
+    colorPixel = colorPicker.value
+}

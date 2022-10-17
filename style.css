@@ -4,6 +4,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(235, 235, 235);
 }
 
 .container {
@@ -18,7 +19,7 @@ body{
 
 .pixel {
     outline: 2px solid black;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 #btn {
@@ -35,3 +36,27 @@ margin-top: 20px;
     height: 40px;
     background-color: orange;
 }
+
+#colorPicker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+input[type="color"] {
+    width: 100px;
+    height: 100px;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#colorPicker::-webkit-color-swatch{
+    border: none;
+    border-radius: 50%;
+}
+
