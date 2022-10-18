@@ -3,9 +3,11 @@ const btn = document.querySelector("#btn")
 const btn2 = document.querySelector("#btn2")
 const color2 = document.querySelector("#color2")
 const color3 = document.querySelector("#color3")
+const clear = document.querySelector("#clear")
 btn.addEventListener("click", removePad)
 color2.addEventListener("click", changeColor)
 color3.addEventListener("click", rainbowColor)
+clear.addEventListener("click", clearPad)
 
 
 
@@ -37,6 +39,12 @@ function removePad() {
     cont.innerHTML = ""
     row = prompt("Set the grid size", "16");
     column = row;
+    createPad();
+}
+
+function clearPad() {
+    const cont = document.querySelector(".container")
+    cont.innerHTML = ""
     createPad();
 }
 
