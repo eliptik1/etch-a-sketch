@@ -4,21 +4,25 @@ const btn2 = document.querySelector("#btn2")
 const color2 = document.querySelector("#color2")
 const color3 = document.querySelector("#color3")
 const eraser = document.querySelector("#eraser")
+const grid = document.querySelector("#grid")
 const clear = document.querySelector("#clear")
 btn.addEventListener("click", removePad)
 color2.addEventListener("click", changeColor)
 color3.addEventListener("click", rainbowColor)
 eraser.addEventListener("click", eraseColor)
+grid.addEventListener("click", toggleGrid)
 clear.addEventListener("click", clearPad)
 
 
 
 let rainbowOn = false
 let colorPixel = "#297bff"
-let width = 600;
+let width = 500;
 let height = width;
 let row = 16;
 let column = row;
+
+color2.classList.add("btnSelected")
 
 createPad();
 
@@ -41,6 +45,13 @@ function rainbowColor() {
 function removePad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
+
+    if(color3.className != "btnSelected"){
+        color2.classList.add("btnSelected")
+    }
+    eraser.classList.remove("btnSelected")
+    colorPixel = colorPicker.value
+
     row = prompt("Set the grid size", "16");
     column = row;
     createPad();
@@ -54,15 +65,26 @@ function eraseColor() {
     eraser.classList.add("btnSelected")
 }
 
+function toggleGrid(){
+
+}
+
 function clearPad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
+    if(color3.className != "btnSelected"){
+        color2.classList.add("btnSelected")  
+    }
+    
+    colorPixel = colorPicker.value
+    eraser.classList.remove("btnSelected")
     createPad();
 }
 
 function createPad() {
     container.style.width = `${width}px`
     container.style.height = `${height}px`
+    
     while (row >= 100) {
         alert("You should set the grid size smaller than 100")
         row = prompt("Set the grid size", "16");
@@ -119,7 +141,6 @@ container.addEventListener("mouseover", () => {
 
         const pickCol = [col1, col2, col3, col4, col5, col6]
         colorPixel = pickCol[Math.floor(Math.random() * pickCol.length)]
-        console.log(colorPixel)
     }
 })
 

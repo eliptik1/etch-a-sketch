@@ -55,6 +55,15 @@ margin-top: 20px;
     background-color: rgb(255, 216, 143);
 }
 
+#grid {
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    height: 40px;
+    background-color: rgb(67, 67, 67);
+}
+
 #clear {
     cursor: pointer;
     padding: 10px;
