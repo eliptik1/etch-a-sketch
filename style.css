@@ -18,7 +18,7 @@ body{
 }
 
 .pixel {
-    outline: 2px solid black;
+    outline: 1px solid rgb(159, 159, 159);
     background-color: rgb(255, 255, 255);
 }
 
@@ -32,9 +32,19 @@ margin-top: 20px;
 
 #color2 {
     cursor: pointer;
-    width: 40px;
+    padding: 10px;
+    font-size: 20px;
     height: 40px;
     background-color: orange;
+}
+
+#color3 {
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    height: 40px;
+    background-color: rgb(255, 0, 170);
 }
 
 #colorPicker {
@@ -47,8 +57,8 @@ margin-top: 20px;
 }
 
 input[type="color"] {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
 input[type='color']::-webkit-color-swatch-wrapper {
@@ -60,3 +70,6 @@ input[type='color']::-webkit-color-swatch-wrapper {
     border-radius: 50%;
 }
 
+.btnSelected {
+    border: 3px solid blue;
+}

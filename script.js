@@ -2,20 +2,34 @@ const container = document.querySelector(".container")
 const btn = document.querySelector("#btn")
 const btn2 = document.querySelector("#btn2")
 const color2 = document.querySelector("#color2")
+const color3 = document.querySelector("#color3")
 btn.addEventListener("click", removePad)
 color2.addEventListener("click", changeColor)
+color3.addEventListener("click", rainbowColor)
 
 
 
+let rainbowOn = false
 let colorPixel = "#297bff"
 let width = 600;
 let height = width;
 let row = 16;
 let column = row;
+
 createPad();
 
-function changeColor(){
-    colorPixel = "orange"
+function changeColor() {
+    rainbowOn = false;
+    console.log(colorPicker.value)
+    colorPixel = colorPicker.value
+    color2.classList.add("btnSelected")
+    color3.classList.remove("btnSelected")
+
+}
+function rainbowColor() {
+    rainbowOn = true;
+    color2.classList.remove("btnSelected")
+    color3.classList.add("btnSelected")
 }
 
 function removePad() {
@@ -52,7 +66,7 @@ function createPad() {
         selection[i].addEventListener("mousemove", hover)
         function hover() {
             if (isClicked) {
-                selection[i].setAttribute("style",`background-color: ${colorPixel}; width: ${width / row}px; height: ${height / column}px`)
+                selection[i].setAttribute("style", `background-color: ${colorPixel}; width: ${width / row}px; height: ${height / column}px`)
             }
         }
     }
@@ -72,10 +86,31 @@ container.addEventListener("mouseleave", () => {
     isClicked = false;
 })
 
+container.addEventListener("mouseover", () => {
+    if (rainbowOn) {
+        let randomNumber = Math.floor(Math.random() * 255)
+
+        let col1 = `rgb(255,0,${randomNumber})`
+        let col2 = `rgb(${randomNumber},0,255)`
+        let col3 = `rgb(0,${randomNumber},255)`
+        let col4 = `rgb(0,255,${randomNumber})`
+        let col5 = `rgb(${randomNumber},255,0)`
+        let col6 = `rgb(255,${randomNumber},0)`
+
+        const pickCol = [col1, col2, col3, col4, col5, col6]
+        colorPixel = pickCol[Math.floor(Math.random() * pickCol.length)]
+        console.log(colorPixel)
+    }
+})
+
+
 const colorPicker = document.querySelector("#colorPicker")
 
-colorPicker.addEventListener("change" , updateColor)
+colorPicker.addEventListener("change", updateColor)
 
-function updateColor(){
+function updateColor() {
+    rainbowOn = false;
+    color2.classList.add("btnSelected")
+    color3.classList.remove("btnSelected")
     colorPixel = colorPicker.value
 }
