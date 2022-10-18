@@ -3,10 +3,12 @@ const btn = document.querySelector("#btn")
 const btn2 = document.querySelector("#btn2")
 const color2 = document.querySelector("#color2")
 const color3 = document.querySelector("#color3")
+const eraser = document.querySelector("#eraser")
 const clear = document.querySelector("#clear")
 btn.addEventListener("click", removePad)
 color2.addEventListener("click", changeColor)
 color3.addEventListener("click", rainbowColor)
+eraser.addEventListener("click", eraseColor)
 clear.addEventListener("click", clearPad)
 
 
@@ -26,12 +28,14 @@ function changeColor() {
     colorPixel = colorPicker.value
     color2.classList.add("btnSelected")
     color3.classList.remove("btnSelected")
+    eraser.classList.remove("btnSelected")
 
 }
 function rainbowColor() {
     rainbowOn = true;
     color2.classList.remove("btnSelected")
     color3.classList.add("btnSelected")
+    eraser.classList.remove("btnSelected")
 }
 
 function removePad() {
@@ -40,6 +44,14 @@ function removePad() {
     row = prompt("Set the grid size", "16");
     column = row;
     createPad();
+}
+
+function eraseColor() {
+    rainbowOn = false;
+    colorPixel = "white"
+    color2.classList.remove("btnSelected")
+    color3.classList.remove("btnSelected")
+    eraser.classList.add("btnSelected")
 }
 
 function clearPad() {
@@ -120,5 +132,6 @@ function updateColor() {
     rainbowOn = false;
     color2.classList.add("btnSelected")
     color3.classList.remove("btnSelected")
+    eraser.classList.remove("btnSelected")
     colorPixel = colorPicker.value
 }

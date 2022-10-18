@@ -47,6 +47,14 @@ margin-top: 20px;
     background-color: rgb(255, 0, 170);
 }
 
+#eraser {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    height: 40px;
+    background-color: rgb(255, 216, 143);
+}
+
 #clear {
     cursor: pointer;
     padding: 10px;
