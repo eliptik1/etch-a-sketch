@@ -14,7 +14,7 @@ grid.addEventListener("click", toggleGrid)
 clear.addEventListener("click", clearPad)
 
 
-
+let gridsOn = true;
 let rainbowOn = false
 let colorPixel = "#297bff"
 let width = 500;
@@ -28,7 +28,6 @@ createPad();
 
 function changeColor() {
     rainbowOn = false;
-    console.log(colorPicker.value)
     colorPixel = colorPicker.value
     color2.classList.add("btnSelected")
     color3.classList.remove("btnSelected")
@@ -66,7 +65,17 @@ function eraseColor() {
 }
 
 function toggleGrid(){
-
+    const pixels = document.getElementsByClassName("pixel")
+    const container = document.querySelector(".container")
+    const test = document.querySelector(".pixel")
+    grid.classList.toggle("btnSelected")
+    for (let i = 0; i < pixels.length; i++) {
+        pixels[i].classList.toggle("pixelOutline")
+    }
+    gridsOn = true;
+    if(test.classList.contains("pixelOutline")){
+        gridsOn = false;
+    }
 }
 
 function clearPad() {
@@ -79,9 +88,11 @@ function clearPad() {
     colorPixel = colorPicker.value
     eraser.classList.remove("btnSelected")
     createPad();
+    
 }
 
 function createPad() {
+    
     container.style.width = `${width}px`
     container.style.height = `${height}px`
     
@@ -97,6 +108,7 @@ function createPad() {
             pixel2.classList.add("pixel")
             pixel2.style.width = `${width / row}px`
             pixel2.style.height = `${height / column}px`
+            
             container.append(pixel2)
         }
     }
@@ -111,6 +123,17 @@ function createPad() {
                 selection[i].setAttribute("style", `background-color: ${colorPixel}; width: ${width / row}px; height: ${height / column}px`)
             }
         }
+    }
+    if(gridsOn === false){
+        const pixels = document.getElementsByClassName("pixel")
+        for (let i = 0; i < pixels.length; i++) {
+            pixels[i].classList.add("pixelOutline")
+        }  
+    } else if(gridsOn === true){
+        const pixels = document.getElementsByClassName("pixel")
+        for (let i = 0; i < pixels.length; i++) {
+            pixels[i].classList.remove("pixelOutline")
+        } 
     }
 }
 

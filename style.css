@@ -22,6 +22,12 @@ body{
     background-color: rgb(255, 255, 255);
 }
 
+.pixelOutline {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+
+}
+
 #btn {
 margin-top: 20px;
 }
