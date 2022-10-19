@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +10,27 @@
     <title>Etch a Sketch</title>
 
 </head>
+
 <body ondragstart="return false;">
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script src="script.js" defer></script>
 
-    <div class="container">
+    <header>Etch-A-Sketch</header>
+    <div class="main">
+        <div class="settings">
+            <input type="color" name="color" id="colorPicker" value="#297bff">
+            <div id="colorBtn">Color mode</div>
+            <div id="rainbow">Rainbow mode</div>
+            <div id="eraser">Eraser</div>
+            <div id="grid">Toggle Grid Lines</div>
+            <div id="clear">Clear All</div>
+            <input type="range" id="gridSize" name="gridSize" min="1" max="64">
+            <div id="sizeText">asd</div>
+        </div>
+        <div class="container"></div>
     </div>
-    <input type="range" id="gridSize" name="gridSize" min="1" max="64">
-    <div id="sizeText">asd</div>
-    <div id="colorBtn">Color mode</div>
-    <input type="color" name="color" id="colorPicker" value="#297bff">
-    <div id="rainbow">Rainbow mode</div>
-    <div id="eraser">Eraser</div>
-    <div id="grid">Toggle Grid Lines</div>
-    <div id="clear">Clear All</div>
-    
+
+
 </body>
+
 </html>

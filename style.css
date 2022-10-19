@@ -1,7 +1,20 @@
-body{
+body {
+    margin: 0;
+    
+}
+
+header {
+    text-align: center;
+    margin: 30px;
+    font-size: 50px;
+}
+
+.main{
+    gap: 50px;
+    padding: 30px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: rgb(235, 235, 235);
@@ -11,10 +24,22 @@ body{
     outline: 2px solid black;
     display: flex;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
-.dimension {
- color: black;
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: rgb(210, 210, 210);
+}
+
+.settings > * {
+    width: 160px;
+    text-align: center;
 }
 
 .pixel {
@@ -25,7 +50,6 @@ body{
 .pixelOutline {
     outline: none;
     background-color: rgb(255, 255, 255);
-
 }
 
 .color {
@@ -36,7 +60,6 @@ body{
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
-    height: 40px;
     background-color: orange;
 }
 
@@ -45,7 +68,6 @@ body{
     color: white;
     padding: 10px;
     font-size: 20px;
-    height: 40px;
     background-color: rgb(255, 0, 170);
 }
 
@@ -53,7 +75,6 @@ body{
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
-    height: 40px;
     background-color: rgb(255, 216, 143);
 }
 
@@ -62,7 +83,6 @@ body{
     color: white;
     padding: 10px;
     font-size: 20px;
-    height: 40px;
     background-color: rgb(67, 67, 67);
 }
 
@@ -70,7 +90,6 @@ body{
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
-    height: 40px;
     background-color: rgb(138, 154, 255);
 }
 
@@ -98,5 +117,5 @@ input[type='color']::-webkit-color-swatch-wrapper {
 }
 
 .btnSelected {
-    border: 3px solid blue;
+    outline: 3px solid blue;
 }
