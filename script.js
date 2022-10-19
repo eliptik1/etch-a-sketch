@@ -1,4 +1,6 @@
 const container = document.querySelector(".container")
+const gridSize = document.querySelector("#gridSize")
+const sizeText = document.querySelector("#sizeText")
 const btn = document.querySelector("#btn")
 const btn2 = document.querySelector("#btn2")
 const color2 = document.querySelector("#color2")
@@ -6,21 +8,29 @@ const color3 = document.querySelector("#color3")
 const eraser = document.querySelector("#eraser")
 const grid = document.querySelector("#grid")
 const clear = document.querySelector("#clear")
-btn.addEventListener("click", removePad)
+
 color2.addEventListener("click", changeColor)
 color3.addEventListener("click", rainbowColor)
 eraser.addEventListener("click", eraseColor)
 grid.addEventListener("click", toggleGrid)
 clear.addEventListener("click", clearPad)
 
+function updateText(){
+    sizeText.textContent = `${gridSize.value}x${gridSize.value}`
+}
 
 let gridsOn = true;
 let rainbowOn = false
 let colorPixel = "#297bff"
 let width = 500;
 let height = width;
-let row = 16;
+let row = 16
 let column = row;
+
+gridSize.value = row
+sizeText.textContent = `${gridSize.value}x${gridSize.value}`
+gridSize.addEventListener("input", updateText)
+gridSize.addEventListener("change", removePad)
 
 color2.classList.add("btnSelected")
 
@@ -51,7 +61,7 @@ function removePad() {
     eraser.classList.remove("btnSelected")
     colorPixel = colorPicker.value
 
-    row = prompt("Set the grid size", "16");
+    row = gridSize.value
     column = row;
     createPad();
 }
@@ -95,12 +105,6 @@ function createPad() {
     
     container.style.width = `${width}px`
     container.style.height = `${height}px`
-    
-    while (row >= 100) {
-        alert("You should set the grid size smaller than 100")
-        row = prompt("Set the grid size", "16");
-        column = row
-    }
 
     for (let j = 1; j <= column; j++) {
         for (let i = 1; i <= row; i++) {
@@ -108,7 +112,6 @@ function createPad() {
             pixel2.classList.add("pixel")
             pixel2.style.width = `${width / row}px`
             pixel2.style.height = `${height / column}px`
-            
             container.append(pixel2)
         }
     }
