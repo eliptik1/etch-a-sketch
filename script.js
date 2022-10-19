@@ -1,16 +1,14 @@
 const container = document.querySelector(".container")
 const gridSize = document.querySelector("#gridSize")
 const sizeText = document.querySelector("#sizeText")
-const btn = document.querySelector("#btn")
-const btn2 = document.querySelector("#btn2")
-const color2 = document.querySelector("#color2")
-const color3 = document.querySelector("#color3")
+const colorBtn = document.querySelector("#colorBtn")
+const rainbowBtn = document.querySelector("#rainbow")
 const eraser = document.querySelector("#eraser")
 const grid = document.querySelector("#grid")
 const clear = document.querySelector("#clear")
 
-color2.addEventListener("click", changeColor)
-color3.addEventListener("click", rainbowColor)
+colorBtn.addEventListener("click", changeColor)
+rainbowBtn.addEventListener("click", rainbowColor)
 eraser.addEventListener("click", eraseColor)
 grid.addEventListener("click", toggleGrid)
 clear.addEventListener("click", clearPad)
@@ -32,22 +30,22 @@ sizeText.textContent = `${gridSize.value}x${gridSize.value}`
 gridSize.addEventListener("input", updateText)
 gridSize.addEventListener("change", removePad)
 
-color2.classList.add("btnSelected")
+colorBtn.classList.add("btnSelected")
 
 createPad();
 
 function changeColor() {
     rainbowOn = false;
     colorPixel = colorPicker.value
-    color2.classList.add("btnSelected")
-    color3.classList.remove("btnSelected")
+    colorBtn.classList.add("btnSelected")
+    rainbowBtn.classList.remove("btnSelected")
     eraser.classList.remove("btnSelected")
 
 }
 function rainbowColor() {
     rainbowOn = true;
-    color2.classList.remove("btnSelected")
-    color3.classList.add("btnSelected")
+    colorBtn.classList.remove("btnSelected")
+    rainbowBtn.classList.add("btnSelected")
     eraser.classList.remove("btnSelected")
 }
 
@@ -55,8 +53,8 @@ function removePad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
 
-    if(color3.className != "btnSelected"){
-        color2.classList.add("btnSelected")
+    if(rainbowBtn.className != "btnSelected"){
+        colorBtn.classList.add("btnSelected")
     }
     eraser.classList.remove("btnSelected")
     colorPixel = colorPicker.value
@@ -69,8 +67,8 @@ function removePad() {
 function eraseColor() {
     rainbowOn = false;
     colorPixel = "white"
-    color2.classList.remove("btnSelected")
-    color3.classList.remove("btnSelected")
+    colorBtn.classList.remove("btnSelected")
+    rainbowBtn.classList.remove("btnSelected")
     eraser.classList.add("btnSelected")
 }
 
@@ -91,8 +89,8 @@ function toggleGrid(){
 function clearPad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
-    if(color3.className != "btnSelected"){
-        color2.classList.add("btnSelected")  
+    if(rainbowBtn.className != "btnSelected"){
+        colorBtn.classList.add("btnSelected")  
     }
     
     colorPixel = colorPicker.value
@@ -177,8 +175,8 @@ colorPicker.addEventListener("change", updateColor)
 
 function updateColor() {
     rainbowOn = false;
-    color2.classList.add("btnSelected")
-    color3.classList.remove("btnSelected")
+    colorBtn.classList.add("btnSelected")
+    rainbowBtn.classList.remove("btnSelected")
     eraser.classList.remove("btnSelected")
     colorPixel = colorPicker.value
 }
