@@ -1,26 +1,40 @@
+html {
+    /* footer fix */
+    position: relative;
+    min-height: 100%;
+}
+
+* {
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
 body {
     margin: 0;
-    
+    background-color: rgb(235, 235, 235)
 }
 
 header {
+    background-color: rgb(210, 210, 210);
     text-align: center;
-    margin: 30px;
-    font-size: 50px;
+    padding: 30px;
+    font-style: italic;
+    font-size: 60px;
+    font-weight: 600;
 }
 
 .main{
-    gap: 50px;
+    height: 100%;
+    gap: 80px;
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgb(235, 235, 235);
 }
 
 .container {
+    margin: 30px 0;
     outline: 2px solid black;
     display: flex;
     flex-wrap: wrap;
@@ -32,14 +46,21 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     padding: 20px;
+    border-radius: 25px;
     background-color: rgb(210, 210, 210);
 }
 
 .settings > * {
+    border-radius: 20px;
     width: 160px;
     text-align: center;
+    transition: all 0.2s;
+}
+
+.settings > div:active {
+
 }
 
 .pixel {
@@ -68,14 +89,14 @@ header {
     color: white;
     padding: 10px;
     font-size: 20px;
-    background-color: rgb(255, 0, 170);
+    background-color: rgb(255, 123, 211);
 }
 
 #eraser {
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
-    background-color: rgb(255, 216, 143);
+    background-color: rgb(188, 255, 143);
 }
 
 #grid {
@@ -83,7 +104,7 @@ header {
     color: white;
     padding: 10px;
     font-size: 20px;
-    background-color: rgb(67, 67, 67);
+    background-color: rgb(101, 101, 101);
 }
 
 #clear {
@@ -91,6 +112,14 @@ header {
     padding: 10px;
     font-size: 20px;
     background-color: rgb(138, 154, 255);
+}
+#clear:active { 
+    scale: 0.95;
+    background-color: rgb(100, 120, 255)
+}
+
+#sizeText {
+    font-size: 20px;
 }
 
 #colorPicker {
@@ -103,8 +132,8 @@ header {
 }
 
 input[type="color"] {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 input[type='color']::-webkit-color-swatch-wrapper {
@@ -112,10 +141,30 @@ input[type='color']::-webkit-color-swatch-wrapper {
 }
 
 #colorPicker::-webkit-color-swatch{
-    border: none;
+    border: 3px solid rgb(52, 52, 52);
     border-radius: 50%;
 }
 
 .btnSelected {
-    outline: 3px solid blue;
+    scale: 1.05;
+    outline: 5px solid rgb(255, 85, 0);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    font-size: 20px;
+    background-color: rgb(187, 187, 187);
+}
+
+.footer > p {
+    margin: 0;
+    font-size: 19px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
