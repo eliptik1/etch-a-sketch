@@ -13,7 +13,7 @@ eraser.addEventListener("click", eraseColor)
 grid.addEventListener("click", toggleGrid)
 clear.addEventListener("click", clearPad)
 
-function updateText(){
+function updateText() {
     sizeText.textContent = `${gridSize.value}x${gridSize.value}`
 }
 
@@ -40,8 +40,8 @@ function changeColor() {
     colorBtn.classList.add("btnSelected")
     rainbowBtn.classList.remove("btnSelected")
     eraser.classList.remove("btnSelected")
-
 }
+
 function rainbowColor() {
     rainbowOn = true;
     colorBtn.classList.remove("btnSelected")
@@ -53,7 +53,7 @@ function removePad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
 
-    if(rainbowBtn.className != "btnSelected"){
+    if (rainbowBtn.className != "btnSelected") {
         colorBtn.classList.add("btnSelected")
     }
     eraser.classList.remove("btnSelected")
@@ -72,7 +72,7 @@ function eraseColor() {
     eraser.classList.add("btnSelected")
 }
 
-function toggleGrid(){
+function toggleGrid() {
     const pixels = document.getElementsByClassName("pixel")
     const container = document.querySelector(".container")
     const test = document.querySelector(".pixel")
@@ -81,7 +81,7 @@ function toggleGrid(){
         pixels[i].classList.toggle("pixelOutline")
     }
     gridsOn = true;
-    if(test.classList.contains("pixelOutline")){
+    if (test.classList.contains("pixelOutline")) {
         gridsOn = false;
     }
 }
@@ -89,18 +89,17 @@ function toggleGrid(){
 function clearPad() {
     const cont = document.querySelector(".container")
     cont.innerHTML = ""
-    if(rainbowBtn.className != "btnSelected"){
-        colorBtn.classList.add("btnSelected")  
+    if (rainbowBtn.className != "btnSelected") {
+        colorBtn.classList.add("btnSelected")
     }
-    
+
     colorPixel = colorPicker.value
     eraser.classList.remove("btnSelected")
     createPad();
-    
 }
 
 function createPad() {
-    
+
     container.style.width = `${width}px`
     container.style.height = `${height}px`
 
@@ -110,47 +109,43 @@ function createPad() {
             pixel2.classList.add("pixel")
             pixel2.style.width = `${width / row}px`
             pixel2.style.height = `${height / column}px`
+
+            pixel2.addEventListener("mouseover", draw) 
+            pixel2.addEventListener("mousedown", draw)
             container.append(pixel2)
         }
     }
 
-    const selection = document.getElementsByClassName("pixel")
+    let isClicked = false;
 
-    for (let i = 0; i < selection.length; i++) {
-        const container = document.querySelector(".container")
-        selection[i].addEventListener("mousemove", hover)
-        function hover() {
-            if (isClicked) {
-                selection[i].setAttribute("style", `background-color: ${colorPixel}; width: ${width / row}px; height: ${height / column}px`)
-            }
+    container.addEventListener("mousedown", () => {
+        isClicked = true;
+    })
+
+    container.addEventListener("mouseup", () => {
+        isClicked = false;
+    })
+
+    function draw(e) { 
+        if (e.type === "mousedown" || (isClicked === true && e.type === "mouseover")) {
+            e.target.style.backgroundColor = `${colorPixel}`
         }
     }
-    if(gridsOn === false){
+    
+    const selection = document.getElementsByClassName("pixel")
+
+    if (gridsOn === false) {
         const pixels = document.getElementsByClassName("pixel")
         for (let i = 0; i < pixels.length; i++) {
             pixels[i].classList.add("pixelOutline")
-        }  
-    } else if(gridsOn === true){
+        }
+    } else if (gridsOn === true) {
         const pixels = document.getElementsByClassName("pixel")
         for (let i = 0; i < pixels.length; i++) {
             pixels[i].classList.remove("pixelOutline")
-        } 
+        }
     }
 }
-
-let isClicked = false;
-
-container.addEventListener("mousedown", () => {
-    isClicked = true;
-})
-
-container.addEventListener("mouseup", () => {
-    isClicked = false;
-})
-
-container.addEventListener("mouseleave", () => {
-    isClicked = false;
-})
 
 container.addEventListener("mouseover", () => {
     if (rainbowOn) {
@@ -167,7 +162,6 @@ container.addEventListener("mouseover", () => {
         colorPixel = pickCol[Math.floor(Math.random() * pickCol.length)]
     }
 })
-
 
 const colorPicker = document.querySelector("#colorPicker")
 

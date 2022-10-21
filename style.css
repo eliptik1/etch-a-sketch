@@ -132,7 +132,6 @@ input[type='range']::-webkit-slider-runnable-track {
     height: 10px;
     border: 1px solid rgb(44, 44, 44);
     border-radius: 25px;
-    /* background:red */
 }
 
 input[type='range']::-webkit-slider-thumb {
@@ -165,7 +164,7 @@ input[type='color']::-webkit-color-swatch-wrapper {
 #colorPicker::-webkit-color-swatch{
     border: 3px solid rgb(52, 52, 52);
     border-radius: 50%;
-    transition: all 0.3s;
+    transition: box-shadow 0.3s;
 }
 
 #colorPicker::-webkit-color-swatch:hover {
