@@ -73,8 +73,27 @@ header {
     background-color: rgb(255, 255, 255);
 }
 
-.color {
-    background-color: rgb(0, 106, 255);
+#brushContainer {
+    display: flex;
+    gap: 10px;
+}
+#brushContainer:hover {
+    box-shadow: none;
+}
+
+#brush1:hover, #brush2:hover { 
+    box-shadow: 0px 0px 15px 2px rgb(0, 0, 0);
+}
+
+#brush1, #brush2 {
+    border-radius: 20px;
+    width: 160px;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(255, 255, 126);
 }
 
 #colorBtn {
