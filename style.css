@@ -54,7 +54,7 @@ header {
 
 .settings > * {
     border-radius: 20px;
-    width: 160px;
+    width: 200px;
     text-align: center;
     transition: all 0.2s;
 }
@@ -75,7 +75,7 @@ header {
 
 #brushContainer {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 #brushContainer:hover {
     box-shadow: none;
@@ -86,15 +86,54 @@ header {
 }
 
 #brush1, #brush2 {
+    width: 120px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
-    width: 160px;
+    
     text-align: center;
     transition: all 0.2s;
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
-    background-color: rgb(255, 255, 126);
+    background-color: rgb(255, 186, 90);
 }
+/* #icon1 {
+
+    outline: 2px solid;
+    background-color:rgb(41, 123, 255);
+    height: 20px;
+    width: 20px; 
+}
+#icon2 {
+    outline: 2px solid;
+    background: rgb(41, 123, 255);
+    height: 33px;
+    position: relative;
+    width: 11px;
+  }
+  #icon2:before {
+    outline: 2px solid;
+    background: rgb(41, 123, 255);
+    content: "";
+    height: 11px;
+    left: -11px;
+    position: absolute;
+    top: 11px;
+    width: 33px;
+  }
+  #icon3 {
+    outline: 2px solid;
+    background-color:rgb(41, 123, 255);
+    height: 11px;
+    left: 0;
+    position: relative;
+    top: -22px;
+    width: 11px; 
+} */
 
 #colorBtn {
     cursor: pointer;
