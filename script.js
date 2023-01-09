@@ -203,17 +203,9 @@ function createPad() {
 
 container.addEventListener("mouseover", () => {
     if (rainbowOn) {
-        let randomNumber = Math.floor(Math.random() * 255)
-
-        let col1 = `rgb(255,0,${randomNumber})`
-        let col2 = `rgb(${randomNumber},0,255)`
-        let col3 = `rgb(0,${randomNumber},255)`
-        let col4 = `rgb(0,255,${randomNumber})`
-        let col5 = `rgb(${randomNumber},255,0)`
-        let col6 = `rgb(255,${randomNumber},0)`
-
-        const pickCol = [col1, col2, col3, col4, col5, col6]
-        colorPixel = pickCol[Math.floor(Math.random() * pickCol.length)]
+        let randomNumber = Math.floor(Math.random() * 359)
+        let col1 = `hsl(${randomNumber}, 100%, 50%)`
+        colorPixel = col1
     }
 })
 
